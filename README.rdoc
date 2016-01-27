@@ -2,7 +2,7 @@ Complete Ruby on Rails Developer Course, Code Challange 2016 project.
 
 http://www.mashrurhossain.com/blog/code-challenge-january-2016
 
-Project Requirements:
+Project Requirements (taken from the above link):
 
 PROJECT for January 21 - 31, 2016: (all submissions must be made by EOD January 31, post as late as possible without going past the due date)
 - Build a social media app where users can sign-up, log in and log out, have a profile page (including a profile image - use gravatar - easiest), can create posts (150 characters maximum..ahem!), can add images to posts (this is optional, won't lose points for not implementing this since it requires AWS or other prod hosting), can like/dislike posts (but only once per post)
