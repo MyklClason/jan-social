@@ -1,28 +1,26 @@
-== README
+Complete Ruby on Rails Developer Course, Code Challange 2016 project.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+http://www.mashrurhossain.com/blog/code-challenge-january-2016
 
-Things you may want to cover:
+Project Requirements:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+PROJECT for January 21 - 31, 2016: (all submissions must be made by EOD January 31, post as late as possible without going past the due date)
+- Build a social media app where users can sign-up, log in and log out, have a profile page (including a profile image - use gravatar - easiest), can create posts (150 characters maximum..ahem!), can add images to posts (this is optional, won't lose points for not implementing this since it requires AWS or other prod hosting), can like/dislike posts (but only once per post)
+- There should be a users listing page, users can follow other users, and a list of who they are following should be displayed in some way in their profile page, perhaps have a total number listed on the profile page and when clicked takes it to the following users page
+- Home page display for each user should have a dashboard, which displays all the posts of users the user is following - latest posts on top, users should have the ability to like/dislike posts (only once) from this display
+- You can use your own authentication system, or devise, but no email authentication necessary (no bonus points for email authentication)
+- There will be points for styling and display, controller restrictions and general good practices like using partials, DRY code etc.
+- There should be a web app home page that displays when you go to the webpage and are not logged in, this should switch to the users profile page after logging in
+Bonus points - Implement search box for users so instead of looking at users listing page you can search for users and add them to your list from there (hint: finance tracker app has this), styling can be as bland as craigslist (I would not recommend this) or as good as you can make it, my recommendation - bootstrap or foundation framework if you're familiar with it. 
+Who can qualify: If you are enrolled in the Complete Ruby on Rails Developer course and understand 50% of the requirements above, you qualify (no sign-ups necessary, just ensure you use your Udemy username in the google submission doc and I can verify that you are enrolled). Take your best shot, don't bail out if your app's not complete or doesn't have all the features or you think it's not good enough, as long as it works to some degree it's good. Think about it on a 100 scale, try to get as close to 100 as you can.
+Where do you submit your project: Click in this google doc to submit your code. Add your user name, your Herokuapp URL, your Github URL and any comments. Don't add email address or any personal info here since everyone can view/edit this document.
+Rules:
+- You can collaborate with others but you must submit individual projects! if you choose to use the discussion area to find and communicate with your partner please put within parenthesis on top of the post or on the subject of the post ("This is relating to the code challenge"), and I will promptly tag that post with some random comment and not respond to the question and leave it to other students to respond
+- IMPORTANT: You cannot ask me or Evgeny for help with this competition or any code related to it
+- You cannot copy popular tutorials, but can definitely take a look at them for how-to's.
+- You cannot ask me or Evgeny for help - did I already say this? this is very important, I will generally avoid non-coursework related questions which will have the ("This is relating to the code challenge") in the body of the post, but I might answer general questions/offer advice
+- You can help others if you choose - is somewhat counter-intuitive given it's a competition but I highly encourage this, karma is an funny thing
+- Please don't do things that you wouldn't do if you knew others were looking at what you were doing....does that make sense? (example - don't delete someone else's repo name from the submission document, that's not fair play and might cause the owner of the deleted repo name to drink extra coffee and get stressed out, we don't want that)
+- Don't forget to Enjoy!
+Good luck!
+- Mashrur
