@@ -9,6 +9,9 @@
     <%= link_to "JanSocial", root_path, class: "navbar-brand" %>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
+        <li><%= link_to "Messages", messages_path %></li>
+        <li><%= link_to "Users", users_path %></li>
+        <li><%= link_to "My Profile", user_path(current_user) %></li>
         <li><%= link_to "Link1", "#"  %></li>
         <li><%= link_to "Link2", "#"  %></li>
         <li><%= link_to "Link3", "#"  %></li>
