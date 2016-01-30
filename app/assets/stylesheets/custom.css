@@ -1,0 +1,16 @@
+table .btn {
+  /*  Source of this fix to the buttoned table:
+  http://stackoverflow.com/questions/13771101/centering-a-button-vertically-in-table-cell-using-twitter-bootstrap
+  */
+	horizontal-align: middle;
+	display: block;
+	margin: auto;
+
+  /* truncate any long ones */
+
+  max-width: 10em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}

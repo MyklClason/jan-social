@@ -1,8 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy, :like, :dislike]
 
-  helper_method :liked?, :disliked?
-
   # GET /messages
   # GET /messages.json
   def index
