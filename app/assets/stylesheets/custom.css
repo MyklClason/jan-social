@@ -6,8 +6,9 @@ table .btn {
 	display: block;
 	margin: auto;
 
-  /* truncate any long ones */
-
+  /* truncate any long string
+  Source: https://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
+  */
   max-width: 10em;
   white-space: nowrap;
   overflow: hidden;
