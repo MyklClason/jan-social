@@ -4,4 +4,7 @@ class UsersController < ApplicationController
   end
   def show
   end
+  def follow
+    redirect_to(:back)
+  end
 end

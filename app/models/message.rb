@@ -1,4 +1,5 @@
 class Message < ActiveRecord::Base
+  acts_as_votable
   belongs_to :creator, :class_name => 'User'
   has_one :preference, :class_name => 'like_dislike'
 
@@ -6,5 +7,4 @@ class Message < ActiveRecord::Base
   validates :content, presence: true, length: {minimum: 3, maximum: 150}
 
   # For likes/dislikes
-  acts_as_votable
 end

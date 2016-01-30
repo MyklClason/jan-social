@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'welcome#home'
 
+  # Like/dislike following/followers routes
+  put 'messages/like/:id' => 'messages#like', as: :like_message
+  put 'messages/dislike/:id' => 'messages#dislike', as: :dislike_message
+  put 'users/follow/:id' => 'users#follow', as: :follow_user
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [:show, :edit, :update, :destroy, :like, :dislike]
 
   # GET /messages
   # GET /messages.json
@@ -64,6 +64,19 @@ class MessagesController < ApplicationController
     end
   end
 
+
+  def like
+    @message.liked_by current_user
+    flash[:success] = "You liked the message"
+    redirect_to(:back)
+  end
+
+  def dislike
+    @message.disliked_by current_user
+    flash[:warning] = "You disliked the message"
+    redirect_to(:back)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message
@@ -74,4 +87,5 @@ class MessagesController < ApplicationController
     def message_params
       params.require(:message).permit(:creator, :content)
     end
+
 end
