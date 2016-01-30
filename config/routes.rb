@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :like_dislikes
   resources :messages
   devise_for :users
   resources :users, only: [:show, :index]

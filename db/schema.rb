@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128000237) do
+ActiveRecord::Schema.define(version: 20160130141447) do
+
+  create_table "like_dislikes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "message_id"
+    t.boolean  "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.integer  "creator_id"
