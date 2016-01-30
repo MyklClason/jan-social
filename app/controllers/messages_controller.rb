@@ -1,6 +1,8 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy, :like, :dislike]
 
+  helper_method :liked?, :disliked?
+
   # GET /messages
   # GET /messages.json
   def index
@@ -67,13 +69,23 @@ class MessagesController < ApplicationController
 
   def like
     @message.liked_by current_user
-    flash[:success] = "You liked the message"
+    if @message.vote_registered?
+      flash[:success] = "You liked that message"
+    else
+      @message.unliked_by current_user
+      flash[:info] = "You unliked that message"
+    end
     redirect_to(:back)
   end
 
   def dislike
     @message.disliked_by current_user
-    flash[:warning] = "You disliked the message"
+    if @message.vote_registered?
+      flash[:warning] = "You disliked that message"
+    else
+      @message.undisliked_by current_user
+      flash[:info] = "You undisliked that message"
+    end
     redirect_to(:back)
   end
 
@@ -87,5 +99,6 @@ class MessagesController < ApplicationController
     def message_params
       params.require(:message).permit(:creator, :content)
     end
+
 
 end

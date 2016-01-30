@@ -7,4 +7,5 @@ class Message < ActiveRecord::Base
   validates :content, presence: true, length: {minimum: 3, maximum: 150}
 
   # For likes/dislikes
+
 end

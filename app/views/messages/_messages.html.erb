@@ -15,14 +15,15 @@
       <td><%= message.creator.full_name %></td>
       <td><%= message.content %></td>
       <td>
-        <%= link_to like_message_path(message), :class => "btn btn-default",
-            method: :put do %>
+        <%= link_to like_message_path(message), method: :put,
+:class => "btn #{ likes?(message) ? 'btn-info' : 'btn-default' }" do %>
         <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
         <% end %>
       </td>
       <td>
-        <%= link_to dislike_message_path(message), :class => "btn btn-default", method: :put do %>
-          <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+        <%= link_to dislike_message_path(message), method: :put,
+:class => "btn #{ dislikes?(message) ? 'btn-info' : 'btn-default' }" do %>
+        <span class="glyphicon glyphicon-thumbs-down " aria-hidden="true"></span>
         <% end %>
       </td>
       <% if display_actions %>
