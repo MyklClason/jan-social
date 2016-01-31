@@ -19,7 +19,7 @@ module ApplicationHelper
     user.votes_for.up.for_type(User).size
   end
   def following_total(user)
-    #Fixme
+    #Fixme, caching might be needed for this
     user.votes.up.by_type(User).size
   end
 

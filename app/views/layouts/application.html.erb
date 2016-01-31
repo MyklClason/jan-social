@@ -6,14 +6,14 @@
 
     <div class="container">
       <div class="row">
-        <%= render 'shared/sidebar_users' %>
-
         <div class="col-lg-6">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-
-        <%= render 'shared/sidebar_messages' %>
+        <% if current_user %>
+          <%= render 'shared/sidebar_users' %>
+          <%= render 'shared/sidebar_messages' %>
+        <% end %>
       </div><!--/row-->
 
       <%= render 'layouts/footer' %>

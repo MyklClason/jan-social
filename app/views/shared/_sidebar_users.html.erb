@@ -1,7 +1,29 @@
-<div class="col-lg-3">
+<div class="col-lg-2">
   <div class="well sidebar-nav">
-    <h3>Users</h3>
-    <%= yield :sidebar_left %>
+    <h3>Following</h3>
+    <table>
+      <tbody>
+        <% following = (current_user.votes_for.up.voters) %>
+        <% if following %>
+        <tr>
+          <td>
+            <%= link_to users_path, :class => "btn btn-default" do %>
+            All users
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+        <% following.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to user_path(user), :class => "btn btn-default" do %>
+            <%= user.full_name %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
     <%# TODO: Add a ordered collections render iterator for users, followed first  %>
-  </div><!--/.well -->
+  </div> <!--/well-->
 </div><!--/span-->
