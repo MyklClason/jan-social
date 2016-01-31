@@ -4,15 +4,12 @@
     <table>
       <tbody>
         <% following = (current_user.votes_for.up.voters) %>
-        <% if following %>
-        <tr>
-          <td>
-            <%= link_to users_path, :class => "btn btn-default" do %>
-            All users
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
+
+        <th>
+          <%= link_to users_path, :class => "btn btn-info" do %>
+          Users list
+          <% end %>
+        </th>
         <% following.each do |user| %>
         <tr>
           <td>
