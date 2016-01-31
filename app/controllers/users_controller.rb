@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  helper_method :follow, :followers_messages
+  helper_method :follow
   before_action :set_user, only: [:follow, :show]
 
   def index

@@ -19,7 +19,7 @@ module ApplicationHelper
     user.votes_for.up.for_type(User).size
   end
   def following_total(user)
-   current_user.votes.up.for_type(User).votables.size
+    current_user.votes.up.for_type(User).votables.size
   end
 
 
@@ -36,6 +36,13 @@ module ApplicationHelper
   end
 
   def followers_messages
-    current_user.votes.up.by_type(Message)
+    messages = []
+    followers = current_user.votes.up.for_type(User).votables
+    followers.each do |user|
+      user.messages.each do |message|
+        messages.push(message)
+      end
+    end
+    messages.sort_by(&:updated_at)
   end
 end

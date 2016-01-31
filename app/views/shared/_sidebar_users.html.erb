@@ -1,19 +1,17 @@
 <div class="col-lg-2">
   <div class="well sidebar-nav">
-    <h3>Following</h3>
-    <table>
-      <tbody>
-        <th>
-          <%= link_to users_path, :class => "btn btn-info" do %>
-          Users list
-          <% end %>
-        </th>
-      </tbody>
+    <div class "col-lg-6">
+      <h4>Following</h4>
 
-    </table>
-    <%= render partial: "users/users", locals: {
-  users: (current_user.votes.up.for_type(User).votables)
-  } %>
-    <%# TODO: Add a ordered collections render iterator for users, followed first  %>
+      <%= render partial: "users/users", locals: {
+  users: (current_user.votes.up.for_type(User).votables) } %>
+    </div>
+
+    <div class "col-lg-6">
+      <h4>Followers</h4>
+
+      <%= render partial: "users/users", locals: {
+  users: (current_user.votes_for.up.by_type(User).voters) } %>
+    </div>
   </div> <!--/well-->
 </div><!--/span-->

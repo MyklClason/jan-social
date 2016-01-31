@@ -1,8 +1,11 @@
 <div class="col-lg-4">
   <div class="well sidebar-nav">
-    <h3>Recent Posts</h3>
+    <h4>Followers recent messages</h4>
 
-    <%#= render partial: "messages/messages", locals: { display_actions: false } %>
-    <%# TODO: Add a ordered collections render iterator for recent posts  %>
+    <%= render partial: "messages/messages", locals: {
+      display_headings: true,
+      display_creator: true,
+      messages: followers_messages
+      } %>
   </div><!--/.well -->
 </div><!--/span-->
