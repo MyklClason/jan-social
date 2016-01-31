@@ -19,7 +19,7 @@ module ApplicationHelper
     user.votes.up.by_type(User).size
   end
   def following_total(user)
-    user.votes_for.up.by_type(User).size
+    user.get_voted(User).size
   end
 
 
