@@ -3,24 +3,17 @@
     <h3>Following</h3>
     <table>
       <tbody>
-        <% following = (current_user.votes_for.up.voters) %>
-
         <th>
           <%= link_to users_path, :class => "btn btn-info" do %>
           Users list
           <% end %>
         </th>
-        <% following.each do |user| %>
-        <tr>
-          <td>
-            <%= link_to user_path(user), :class => "btn btn-default" do %>
-            <%= user.full_name %>
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
       </tbody>
+
     </table>
+    <%= render partial: "users/users", locals: {
+  users: (current_user.votes.up.for_type(User).votables)
+  } %>
     <%# TODO: Add a ordered collections render iterator for users, followed first  %>
   </div> <!--/well-->
 </div><!--/span-->

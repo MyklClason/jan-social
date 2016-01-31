@@ -2,7 +2,13 @@
 
 <h1 align="center">All Messages</h1>
 
-<%= render partial: "messages", locals: { display_actions: true, messages: @messages } %>
+<%= render partial: "messages", locals: {
+  display_headings: true,
+  display_creator: true,
+  display_voting: true,
+  display_actions: true,
+  messages: @messages
+  } %>
 
 <br>
 

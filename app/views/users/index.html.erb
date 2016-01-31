@@ -2,4 +2,9 @@
 
 <h1 align="center">All Users</h1>
 
-<%= render partial: "users", locals: { display_actions: true, users: @users } %>
+<%= render partial: "users", locals: {
+  display_headings: true,
+  display_voting: true,
+  display_actions: true,
+  users: @users
+  } %>

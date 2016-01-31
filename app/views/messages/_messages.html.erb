@@ -1,6 +1,7 @@
 <table>
   <thead>
     <tr>
+      <% if local_assigns[:display_creator] %>
       <th>
         <div class="btn btn-default disabled" >
         <%= link_to '#', :class => "" do %>
@@ -8,17 +9,20 @@
         <% end %>
         </div>
       </th>
+      <% end %>
       <th>
         <%= link_to '#', :class => "btn btn-default disabled" do %>
         Content
         <% end %>
       </th>
+      <% if local_assigns[:display_voting] %>
       <th colspan="3">
         <%= link_to '#', :class => "btn btn-default disabled" do %>
         Voting
         <% end %>
       </th>
-      <% if display_actions %>
+      <% end %>
+      <% if local_assigns[:display_actions] %>
       <th colspan="2">
         <%= link_to '#', :class => "btn btn-default disabled" do %>
         Actions
@@ -31,16 +35,19 @@
   <tbody>
     <% messages.each do |message| %>
     <tr>
+      <% if local_assigns[:display_creator] %>
       <td>
         <%= link_to message.creator, :class => "btn btn-default" do %>
         <%= message.creator.full_name %>
         <% end %>
       </td>
+      <% end %>
       <td>
         <%= link_to message, :class => "btn btn-default" do %>
         <%= message.content %>
         <% end %>
       </td>
+      <% if local_assigns[:display_voting] %>
       <td>
         <%= link_to like_message_path(message), method: :put,
 :class => "btn #{ likes?(message) ? 'btn-info' : 'btn-default' }" do %>
@@ -62,7 +69,8 @@
         <%= likes_dislikes_total(message) %>
         <% end %>
       </td>
-      <% if display_actions %>
+      <% end %>
+      <% if local_assigns[:display_actions] %>
       <td>
         <%= link_to edit_message_path(message), :class => "btn btn-warning" do %>
         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>

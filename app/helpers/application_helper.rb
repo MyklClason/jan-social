@@ -3,7 +3,7 @@ module ApplicationHelper
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     size = options[:size]
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-    image_tag(gravatar_url, alt: user.username, class: "img-circle")
+    image_tag(gravatar_url, alt: user.full_name, class: "img-circle")
   end
 
   def likes_total(message)
@@ -19,6 +19,7 @@ module ApplicationHelper
     user.votes_for.up.for_type(User).size
   end
   def following_total(user)
+    #Fixme
     user.votes_for.up.voters.size
   end
 

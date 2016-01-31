@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   helper_method :follow, :followers_messages
-  before_action :set_user, only: [:follow]
+  before_action :set_user, only: [:follow, :show]
 
   def index
     @users = User.all
