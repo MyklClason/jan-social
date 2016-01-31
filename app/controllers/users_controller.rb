@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def follow
-    if @user == current_user:
+    if @user == current_user
       flash[:warning] = "You cannot follow yourself"
     else
       @user.liked_by current_user
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
         @user.unliked_by current_user
         flash[:info] = "You are no longer following that user"
       end
+    end
     redirect_to(:back)
   end
 
