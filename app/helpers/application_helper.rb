@@ -13,7 +13,7 @@ module ApplicationHelper
     message.get_dislikes.by_type(User).size
   end
   def likes_dislikes_total(message)
-    likes_total(message) + dislikes_total(message)
+    likes_total(message) - dislikes_total(message)
   end
   def followers_total(user)
     user.votes_for.up.by_type(User).size

@@ -9,14 +9,27 @@
     <%= link_to "JanSocial", root_path, class: "navbar-brand" %>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Messages", messages_path %></li>
-        <li><%= link_to "Users", users_path %></li>
+        <li class="<%= 'active' if params[:controller] == 'messages' %>">
+          <%= link_to "Messages", messages_path %>
+        </li>
+        <li class="<%= 'active' if params[:controller] == 'users' %>">
+          <%= link_to "Users", users_path %>
+        </li>
         <% if current_user %>
-          <li><%= link_to "My Profile", user_path(current_user) %></li>
+        <li class="<%= 'active' if current_page?(user_path(current_user)) %>">
+            <%= link_to "My Profile", user_path(current_user) %>
+        </li>
         <% end %>
-        <li><%= link_to "Link1", "#"  %></li>
-        <li><%= link_to "Link2", "#"  %></li>
-        <li><%= link_to "Link3", "#"  %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li>
+          <%= link_to destroy_user_session_path, :class => "btn btn-default", method: :delete do %>
+          Logout
+          <% end %>
+        </li>
+        <% end %>
+
       </ul>
     </div>
   </div>
