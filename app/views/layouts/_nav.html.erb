@@ -6,7 +6,8 @@
       <span class="icon-bar"></span>
     </button>
 
-    <% profile_page = current_page?(user_path(current_user)) %>
+
+    <% (profile_page = current_page?(user_path(current_user))) if current_user %>
 
     <%= link_to "JanSocial", root_path, class: "navbar-brand" %>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
