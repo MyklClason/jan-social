@@ -16,10 +16,11 @@ module ApplicationHelper
     likes_total(message) - dislikes_total(message)
   end
   def followers_total(user)
-    user.votes.up.by_type(User).size
+    user.votes_for.up.for_type(User).size
   end
   def following_total(user)
-    user.get_voted(User).size
+    #Fixme
+    user.votes.up.by_type(User).size
   end
 
 
