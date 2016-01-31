@@ -34,6 +34,8 @@
         <%= link_to follow_user_path(user), method: :put,
 :class => "btn #{ follows?(user) ? 'btn-info' : 'btn-default' }" do %>
         <%= follows?(user) ? "Following" : "Follow" %>
+        <%= followers_total(user) %>
+        <%= following_total(user) %>
         <% end %>
       </td>
 
