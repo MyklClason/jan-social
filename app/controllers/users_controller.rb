@@ -9,13 +9,16 @@ class UsersController < ApplicationController
   end
 
   def follow
-    @user.liked_by current_user
-    if @user.vote_registered?
-      flash[:success] = "You are following that user"
+    if @user == current_user:
+      flash[:warning] = "You cannot follow yourself"
     else
-      @user.unliked_by current_user
-      flash[:info] = "You are no longer following that user"
-    end
+      @user.liked_by current_user
+      if @user.vote_registered?
+        flash[:success] = "You are following that user"
+      else
+        @user.unliked_by current_user
+        flash[:info] = "You are no longer following that user"
+      end
     redirect_to(:back)
   end
 
