@@ -6,9 +6,19 @@
         Name
         <% end %>
       </th>
-      <th>
+      <th colspan>
         <%= link_to '#', :class => "btn btn-default disabled" do %>
         Follow
+        <% end %>
+      </th>
+      <th colspan>
+        <%= link_to '#', :class => "btn btn-default disabled" do %>
+        Following
+        <% end %>
+      </th>
+      <th colspan>
+        <%= link_to '#', :class => "btn btn-default disabled" do %>
+        Followers
         <% end %>
       </th>
       <% if display_actions %>
@@ -34,7 +44,15 @@
         <%= link_to follow_user_path(user), method: :put,
 :class => "btn #{ follows?(user) ? 'btn-info' : 'btn-default' }" do %>
         <%= follows?(user) ? "Following" : "Follow" %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to '#', :class => "btn btn-default disabled }" do %>
         <%= followers_total(user) %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to '#', :class => "btn btn-default disabled }" do %>
         <%= following_total(user) %>
         <% end %>
       </td>
