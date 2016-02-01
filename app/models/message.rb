@@ -5,4 +5,5 @@ class Message < ActiveRecord::Base
   validates :content, presence: true, length: {minimum: 3, maximum: 150}
 
   acts_as_votable
+  
 end

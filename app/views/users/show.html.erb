@@ -8,8 +8,8 @@
 
 <h1 align="center">Welcome to <%= @user.full_name %>'s page</h1>
 
-<div class="row">
-  <div class="col-md-12 well">
+<div class="well">
+  <div class="row">
     <div class="col-md-3">
       <h4>Following</h4>
       <%= render partial: "users/users", locals: {
@@ -28,5 +28,15 @@
       <%= render partial: "users/users", locals: {
   users: (@user.votes_for.up.by_type(User).voters) } %>
     </div>
+  </div>
+
+  <div class="row">
+    <h3 align="center">Followers Recent Messages</h3>
+    <%= render partial: "messages/messages", locals: {
+  display_headings: true,
+  display_creator: true,
+  display_voting: true,
+  messages: followers_messages
+  } %>
   </div>
 </div>

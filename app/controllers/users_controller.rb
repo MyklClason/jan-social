@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   helper_method :follow
   before_action :set_user, only: [:follow, :show]
+  before_action :disabled, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -27,5 +28,10 @@ class UsersController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def disabled
+    flash[:danger] = "That functionality is not enabled"
+    redirect_to(:back)
   end
 end

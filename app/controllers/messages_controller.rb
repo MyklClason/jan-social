@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy, :like, :dislike]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # GET /messages
   # GET /messages.json
@@ -106,5 +107,11 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:creator, :content)
   end
 
+  def require_same_user
+    if current_user != @message.creator
+      flash[:danger] = "You can only edit or delete your own articles"
+      redirect_to(:back)
+    end
+  end
 
 end
