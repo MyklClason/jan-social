@@ -16,11 +16,11 @@ class User < ActiveRecord::Base
     "Anonymous"
   end
 
-  def follow(user)
+  def followed_by(user)
     self.liked_by user
   end
 
-  def unfollow(user)
+  def unfollowed_by(user)
     self.unliked_by user
   end
 end

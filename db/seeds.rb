@@ -12,6 +12,17 @@ joe = User.create({ email: 'joe@joe.joe', password: 'joejoejoe', first_name: "Jo
 moe = User.create({ email: 'moe@moe.moe', password: 'moemoemoe', first_name: "Moe", last_name: "Moe" })
 luo = User.create({ email: 'luo@luo.luo', password: 'luoluoluo', first_name: "Dou", last_name: "Lou" })
 
+# Demo Follows
+joe.followed_by user
+moe.followed_by user
+luo.followed_by user
+user.followed_by joe
+moe.followed_by joe
+luo.followed_by joe
+user.followed_by moe
+user.followed_by luo
+moe.followed_by luo
+
 # Demo messages
 user_msg1 = Message.create({creator: user, content: "User test message 1" })
 user_msg2 = Message.create({creator: user, content: "User's Message" })
@@ -68,13 +79,4 @@ joe_msg3.disliked_by moe
 
 luo_msg3.liked_by moe
 
-# Demo Follows
-user.follow joe
-user.follow moe
-user.follow luo
-joe.follow user
-moe.follow joe
-moe.follow luo
-luo.follow user
-luo.follow joe
 

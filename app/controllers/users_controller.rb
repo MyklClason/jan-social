@@ -13,11 +13,11 @@ class UsersController < ApplicationController
     if @user == current_user
       flash[:warning] = "You cannot follow yourself"
     else
-      @user.follow current_user
+      @user.followed_by current_user
       if @user.vote_registered?
         flash[:success] = "You are following that user"
       else
-        @user.unfollow current_user
+        @user.unfollowed_by current_user
         flash[:info] = "You are no longer following that user"
       end
     end
