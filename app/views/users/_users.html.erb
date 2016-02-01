@@ -1,85 +1,16 @@
+<% locals = local_assigns %>
+<% dir = 'tables/users/' %>
 <table>
-  <% if local_assigns[:display_headings]  %>
-  <thead>
-    <tr>
-      <th>
-        <%= link_to '#', :class => "btn btn-default disabled" do %>
-        Name
-        <% end %>
-      </th>
-      <% if local_assigns[:display_voting]  %>
-      <th>
-        <%= link_to '#', :class => "btn btn-default disabled" do %>
-        Follow
-        <% end %>
-      </th>
-      <th>
-        <%= link_to '#', :class => "btn btn-default disabled" do %>
-        Following
-        <% end %>
-      </th>
-      <th>
-        <%= link_to '#', :class => "btn btn-default disabled" do %>
-        Followers
-        <% end %>
-      </th>
-      <% end %>
-      <% if local_assigns[:display_actions] %>
-      <th colspan="3">
-        <%= link_to '#', :class => "btn btn-default disabled" do %>
-        Actions
-        <% end %>
-      </th>
-      <% end %>
-    </tr>
-  </thead>
-  <% end  %>
+  <%= (render partial: dir + 'heading', locals: locals) if locals[:display_headings] %>
 
   <tbody>
     <% users.each do |user| %>
+    <% local_assigns[:user] = user %>
+    <% locals = local_assigns %>
     <tr>
-      <td>
-        <%= link_to user, :class => "btn btn-default" do %>
-        <%= user.full_name %>
-        <% end %>
-      </td>
-
-      <% if local_assigns[:display_voting] %>
-      <td>
-        <% if user == current_user %>
-        <%= link_to 'N/A', '#', :class => "btn btn-default disabled }"%>
-        <% else %>
-        <%= link_to follow_user_path(user), method: :put,
-:class => "btn #{ follows?(user) ? 'btn-info' : 'btn-default' }" do %>
-        <%= follows?(user) ? "Following" : "Follow" %>
-        <% end %>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to '#', :class => "btn btn-default disabled" do %>
-        <%= following_total(user) %>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to '#', :class => "btn btn-default disabled" do %>
-        <%= followers_total(user) %>
-        <% end %>
-      </td>
-      <% end %>
-
-      <% if local_assigns[:display_actions] %>
-      <td>
-        <%= link_to edit_user_registration_path(user), :class => "btn btn-warning" do %>
-        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to user, :class => "btn btn-danger",
-method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-        <% end %>
-      </td>
-      <% end %>
+      <%= (render partial: dir + 'name', locals: locals) %>
+      <%= (render partial: dir + 'voting', locals: locals) if locals[:display_voting] %>
+      <%= (render partial: dir + 'actions', locals: locals) if locals[:display_actions] %>
     </tr>
     <% end %>
   </tbody>

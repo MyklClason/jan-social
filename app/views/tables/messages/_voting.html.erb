@@ -1,0 +1,29 @@
+<td>
+  <% if message.creator == current_user %>
+  <%= link_to 'N/A', '#', :class => "btn btn-default disabled }"%>
+  <% else %>
+  <%= link_to like_message_path(message), method: :put,
+:class => "btn #{ likes?(message) ? 'btn-info' : 'btn-default' }" do %>
+  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+  <%= likes_total(message) %>
+  <% end %>
+  <% end %>
+</td>
+<td>
+  <% if message.creator == current_user %>
+  <%= link_to 'N/A', '#', :class => "btn btn-default disabled }"%>
+  <% else %>
+  <%= link_to dislike_message_path(message), method: :put,
+:class => "btn #{ dislikes?(message) ? 'btn-info' : 'btn-default' }" do %>
+  <span class="glyphicon glyphicon-thumbs-down " aria-hidden="true"></span>
+  <%= dislikes_total(message) %>
+  <% end %>
+  <% end %>
+</td>
+<td>
+  <%= link_to '#',
+:class => "btn btn-default disabled" do %>
+  <span class="glyphicon glyphicon-hand-right " aria-hidden="true"></span>
+  <%= likes_dislikes_total(message) %>
+  <% end %>
+</td>

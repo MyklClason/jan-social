@@ -1,0 +1,5 @@
+<th colspan="<%= local_assigns[:colspan] ? colspan : "1" %>">
+  <%= link_to '#', :class => "btn btn-default disabled" do %>
+  <%= local_assigns[:body] ? body : "" %>
+  <% end %>
+</th>

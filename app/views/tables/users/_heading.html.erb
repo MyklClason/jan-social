@@ -1,0 +1,11 @@
+<% locals = local_assigns %>
+<% th = "tables/th" %>
+<thead>
+  <tr>
+    <%= (render partial: th, locals: {body: 'Full Name' }) %>
+    <%= (render partial: th, locals: {body: 'Follow' }) if locals[:display_voting] %>
+    <%= (render partial: th, locals: {body: 'Dislike' }) if locals[:display_voting] %>
+    <%= (render partial: th, locals: {body: 'Total' }) if locals[:display_voting] %>
+    <%= (render partial: th, locals: {body: 'Actions', colspan: "3" }) if locals[:display_actions] %>
+  </tr>
+</thead>

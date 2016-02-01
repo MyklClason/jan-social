@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1 align="center">All Messages</h1>
+<div class="well">
+  <h1 align="center">All Messages</h1>
+</div>
 
 <div class="well">
-<%= render partial: "messages", locals: {
+  <%= render partial: "messages", locals: {
   display_headings: true,
   display_creator: true,
   display_voting: true,

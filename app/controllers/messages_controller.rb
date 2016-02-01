@@ -83,7 +83,7 @@ class MessagesController < ApplicationController
   def dislike
     if @message.creator == current_user
       flash[:warning] = "You cannot vote on your own messages"
-      else
+    else
       @message.disliked_by current_user
       if @message.vote_registered?
         flash[:warning] = "You disliked that message"
@@ -96,15 +96,15 @@ class MessagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message
-      @message = Message.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_message
+    @message = Message.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def message_params
-      params.require(:message).permit(:creator, :content)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def message_params
+    params.require(:message).permit(:creator, :content)
+  end
 
 
 end
