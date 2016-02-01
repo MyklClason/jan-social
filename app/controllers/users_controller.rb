@@ -13,11 +13,11 @@ class UsersController < ApplicationController
     if @user == current_user
       flash[:warning] = "You cannot follow yourself"
     else
-      @user.liked_by current_user
+      @user.follow current_user
       if @user.vote_registered?
         flash[:success] = "You are following that user"
       else
-        @user.unliked_by current_user
+        @user.unfollow current_user
         flash[:info] = "You are no longer following that user"
       end
     end
@@ -32,6 +32,6 @@ class UsersController < ApplicationController
 
   def disabled
     flash[:danger] = "That functionality is not enabled"
-    redirect_to(:back)
+    redirect_to(root_path)
   end
 end
