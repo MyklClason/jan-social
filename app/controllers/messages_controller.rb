@@ -66,23 +66,31 @@ class MessagesController < ApplicationController
 
 
   def like
-    @message.liked_by current_user
-    if @message.vote_registered?
-      flash[:success] = "You liked that message"
+    if @message.creator == current_user
+      flash[:warning] = "You cannot vote on your own messages"
     else
-      @message.unliked_by current_user
-      flash[:info] = "You unliked that message"
+      @message.liked_by current_user
+      if @message.vote_registered?
+        flash[:success] = "You liked that message"
+      else
+        @message.unliked_by current_user
+        flash[:info] = "You unliked that message"
+      end
     end
     redirect_to(:back)
   end
 
   def dislike
-    @message.disliked_by current_user
-    if @message.vote_registered?
-      flash[:warning] = "You disliked that message"
-    else
-      @message.undisliked_by current_user
-      flash[:info] = "You undisliked that message"
+    if @message.creator == current_user
+      flash[:warning] = "You cannot vote on your own messages"
+      else
+      @message.disliked_by current_user
+      if @message.vote_registered?
+        flash[:warning] = "You disliked that message"
+      else
+        @message.undisliked_by current_user
+        flash[:info] = "You undisliked that message"
+      end
     end
     redirect_to(:back)
   end

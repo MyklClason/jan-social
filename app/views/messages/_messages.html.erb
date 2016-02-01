@@ -4,9 +4,9 @@
       <% if local_assigns[:display_creator] %>
       <th>
         <div class="btn btn-default disabled" >
-        <%= link_to '#', :class => "" do %>
-        Creator
-        <% end %>
+          <%= link_to '#', :class => "" do %>
+          Creator
+          <% end %>
         </div>
       </th>
       <% end %>
@@ -49,17 +49,25 @@
       </td>
       <% if local_assigns[:display_voting] %>
       <td>
+        <% if message.creator == current_user %>
+        <%= link_to 'N/A', '#', :class => "btn btn-default disabled }"%>
+        <% else %>
         <%= link_to like_message_path(message), method: :put,
 :class => "btn #{ likes?(message) ? 'btn-info' : 'btn-default' }" do %>
         <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
         <%= likes_total(message) %>
         <% end %>
+        <% end %>
       </td>
       <td>
+        <% if message.creator == current_user %>
+        <%= link_to 'N/A', '#', :class => "btn btn-default disabled }"%>
+        <% else %>
         <%= link_to dislike_message_path(message), method: :put,
 :class => "btn #{ dislikes?(message) ? 'btn-info' : 'btn-default' }" do %>
         <span class="glyphicon glyphicon-thumbs-down " aria-hidden="true"></span>
         <%= dislikes_total(message) %>
+        <% end %>
         <% end %>
       </td>
       <td>
@@ -78,7 +86,7 @@
       </td>
       <td>
         <%= link_to message, :class => "btn btn-danger",
-            method: :delete, data: { confirm: 'Are you sure?' } do %>
+method: :delete, data: { confirm: 'Are you sure?' } do %>
         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
         <% end %>
       </td>
