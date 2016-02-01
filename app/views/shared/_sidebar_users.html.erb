@@ -1,17 +1,11 @@
 <div class="col-lg-2">
   <div class="well sidebar-nav">
-    <div class "col-lg-6">
-      <h4>Following</h4>
-
-      <%= render partial: "users/users", locals: {
+    <h4>Following</h4>
+    <%= render partial: "users/users", locals: {
   users: (current_user.votes.up.for_type(User).votables) } %>
-    </div>
 
-    <div class "col-lg-6">
-      <h4>Followers</h4>
-
-      <%= render partial: "users/users", locals: {
+    <h4>Followers</h4>
+    <%= render partial: "users/users", locals: {
   users: (current_user.votes_for.up.by_type(User).voters) } %>
-    </div>
   </div> <!--/well-->
 </div><!--/span-->

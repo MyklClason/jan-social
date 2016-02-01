@@ -4,13 +4,26 @@
     <%= gravatar_for @user, size: 150 %>
   </div>
 
+
   <div class="col-md-12">
-    <h3 align="center">Messages</h3>
-    <%= render partial: "messages/messages", locals: {
+    <div class="col-md-3">
+      <h4>Following</h4>
+      <%= render partial: "users/users", locals: {
+  users: (@user.votes.up.for_type(User).votables) } %>
+    </div>
+    <div class="col-md-6">
+      <h3 align="center">Messages</h3>
+      <%= render partial: "messages/messages", locals: {
   display_headings: true,
   display_actions: true,
   messages: @user.messages
   } %>
+    </div>
+    <div class="col-md-3">
+      <h4>Followers</h4>
+      <%= render partial: "users/users", locals: {
+  users: (@user.votes_for.up.by_type(User).voters) } %>
+    </div>
   </div>
 
 </div>
