@@ -2,6 +2,7 @@
 
 <h1 align="center">All Messages</h1>
 
+<div class="well">
 <%= render partial: "messages", locals: {
   display_headings: true,
   display_creator: true,
@@ -10,6 +11,10 @@
   messages: @messages
   } %>
 
+</div>
+
 <br>
 
-<%= link_to 'New Message', new_message_path %>
+<%= link_to new_message_path, :class => "btn btn-default btn-lg" do %>
+New Message
+<% end %>
