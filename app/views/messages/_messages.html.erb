@@ -16,9 +16,19 @@
         <% end %>
       </th>
       <% if local_assigns[:display_voting] %>
-      <th colspan="3">
+      <th>
         <%= link_to '#', :class => "btn btn-default disabled" do %>
-        Voting
+        Like
+        <% end %>
+      </th>
+      <th>
+        <%= link_to '#', :class => "btn btn-default disabled" do %>
+        Dislike
+        <% end %>
+      </th>
+      <th>
+        <%= link_to '#', :class => "btn btn-default disabled" do %>
+        Total
         <% end %>
       </th>
       <% end %>
